@@ -22,5 +22,20 @@ colorBlue.style.border = 'solid';
 colorBlue.style.width = '85%';
 colorBlue.style.borderWidth = '1px';
 
-const colors = document.getElementsByClassName('colors');
+const coresDaPagina = document.querySelectorAll('div.color');
 
+function CoresAutomaticas() {
+  const letras = '0123456789ABCDEF';
+  let cores = '#';
+  for (let index = 0; index < 6; index += 1) {
+    cores += letras.charAt(Math.floor(Math.random() * letras.length));
+  }
+
+  return cores;
+}
+const button = document.getElementById('button-random-color');
+button.addEventListener('click', () => {
+  coresDaPagina[2].style.backgroundColor = CoresAutomaticas();
+  coresDaPagina[3].style.backgroundColor = CoresAutomaticas();
+  coresDaPagina[1].style.backgroundColor = CoresAutomaticas();
+});
