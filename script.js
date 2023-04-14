@@ -13,7 +13,7 @@ coloGreen.style.borderWidth = '1px';
 const colorBlack = document.getElementById('black');
 colorBlack.style.backgroundColor = 'black';
 colorBlack.style.border = 'solid';
-colorBlack.style.width = '55%';
+colorBlack.style.width = '75%';
 colorBlack.style.borderWidth = '1px';
 
 const colorBlue = document.getElementById('blue');
