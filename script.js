@@ -22,8 +22,6 @@ colorBlue.style.border = 'solid';
 colorBlue.style.width = '85%';
 colorBlue.style.borderWidth = '1px';
 
-const coresDaPagina = document.querySelectorAll('div.color');
-
 function CoresAutomaticas() {
   const letras = '0123456789ABCDEF';
   let cores = '#';
@@ -33,9 +31,35 @@ function CoresAutomaticas() {
 
   return cores;
 }
+const coresDaPagina = document.querySelectorAll('div.color');
+// const Paletas = {
+// cor2: coresDaPagina[2].style.backgroundColor = CoresAutomaticas(),
+// cor3: coresDaPagina[3].style.backgroundColor = CoresAutomaticas(),
+// cor4: coresDaPagina[1].style.backgroundColor = CoresAutomaticas(),
+// }
+
 const button = document.getElementById('button-random-color');
-button.addEventListener('click', () => {
+let CoresAleatorias;
+const CoresRandom = () => { 
   coresDaPagina[2].style.backgroundColor = CoresAutomaticas();
   coresDaPagina[3].style.backgroundColor = CoresAutomaticas();
   coresDaPagina[1].style.backgroundColor = CoresAutomaticas();
-});
+  if(CoresRandom) {
+    return CoresAleatorias = [coresDaPagina[2].style.backgroundColor = CoresAutomaticas(),
+      coresDaPagina[3].style.backgroundColor = CoresAutomaticas(),
+      coresDaPagina[1].style.backgroundColor = CoresAutomaticas(),
+  ]
+  }
+  
+};
+
+button.addEventListener('click', CoresRandom);
+
+let FavoriteColors = JSON.parse(localStorage.getItem('colorPalette')) || [];
+let manterACor = JSON.parse(localStorage.getItem('colorPalette'));
+
+document.querySelector('#button-random-color').onclick = function() {
+  const ColorSource = CoresAleatorias;
+  FavoriteColors.push(ColorSource);
+  localStorage.setItem('colorPalette', JSON.stringify(FavoriteColors));
+};
