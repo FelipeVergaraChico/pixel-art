@@ -82,3 +82,37 @@ document.querySelector('#button-random-color').addEventListener('click', functio
     // pixel[i] += pixel[i].style.width = '5px';
     // pixel[i] += pixel[i].style.height = '5x';
   }
+
+const button2 = document.getElementById('clear-board');
+
+button2.addEventListener('click', () => {
+  const pixel = document.getElementsByClassName('pixel');
+  const corBranca = 'rb(255, 0, 0)';
+  for(let i = 0; i < pixel.length; i += 1) {
+    pixel[i] += pixel[i].style.backgroundColor = corBranca;
+  }
+})
+
+  // requisito 9
+
+coresDaPagina[1].addEventListener('click', () => {
+  coresDaPagina[1].classList.add('selected');
+  coresDaPagina[0].classList.remove('selected');
+  coresDaPagina[2].classList.remove('selected');
+  coresDaPagina[3].classList.remove('selected');
+});
+
+coresDaPagina[2].addEventListener('click', () => {
+  coresDaPagina[2].classList.add('selected');
+  coresDaPagina[0].classList.remove('selected');
+  coresDaPagina[1].classList.remove('selected');
+  coresDaPagina[3].classList.remove('selected');
+});
+
+coresDaPagina[3].addEventListener('click', () => {
+  coresDaPagina[3].classList.add('selected');
+  coresDaPagina[0].classList.remove('selected');
+  coresDaPagina[2].classList.remove('selected');
+  coresDaPagina[1].classList.remove('selected');
+});
+
