@@ -37,29 +37,43 @@ const coresDaPagina = document.querySelectorAll('div.color');
 // cor3: coresDaPagina[3].style.backgroundColor = CoresAutomaticas(),
 // cor4: coresDaPagina[1].style.backgroundColor = CoresAutomaticas(),
 // }
-
-const button = document.getElementById('button-random-color');
 let CoresAleatorias;
+let corAleatoria1;
+let corAleatoria3;
+const button = document.getElementById('button-random-color');
 const CoresRandom = () => { 
   coresDaPagina[2].style.backgroundColor = CoresAutomaticas();
   coresDaPagina[3].style.backgroundColor = CoresAutomaticas();
   coresDaPagina[1].style.backgroundColor = CoresAutomaticas();
-  if(CoresRandom) {
-    return CoresAleatorias = [coresDaPagina[2].style.backgroundColor = CoresAutomaticas(),
-      coresDaPagina[3].style.backgroundColor = CoresAutomaticas(),
-      coresDaPagina[1].style.backgroundColor = CoresAutomaticas(),
-  ]
+  if (CoresRandom) {
+   CoresAleatorias = coresDaPagina[2].style.backgroundColor = CoresAutomaticas();
+   corAleatoria1 = coresDaPagina[1].style.backgroundColor = CoresAutomaticas();
+   corAleatoria3 = coresDaPagina[3].style.backgroundColor = CoresAutomaticas();
   }
-  
+
 };
+
 
 button.addEventListener('click', CoresRandom);
 
-let FavoriteColors = JSON.parse(localStorage.getItem('colorPalette')) || [];
-let manterACor = JSON.parse(localStorage.getItem('colorPalette'));
-
-document.querySelector('#button-random-color').onclick = function() {
+document.querySelector('#button-random-color').addEventListener('click', function () {
   const ColorSource = CoresAleatorias;
-  FavoriteColors.push(ColorSource);
-  localStorage.setItem('colorPalette', JSON.stringify(FavoriteColors));
-};
+  const ColorSource2 = corAleatoria1;
+  const ColorSource3 = corAleatoria3;
+  localStorage.setItem('colorPalette', JSON.stringify(ColorSource));
+  localStorage.setItem('colorPalette2',JSON.stringify(ColorSource2));
+  localStorage.setItem('colorPalette3',JSON.stringify(ColorSource3));
+});
+
+
+  const manterACor = localStorage.getItem('colorPalette');
+  const manterACor2 = localStorage.getItem('colorPalette2');
+  const manterACor3 = localStorage.getItem('colorPalette3');
+  const CorComJson = JSON.parse(manterACor);
+  const CorComJson2 = JSON.parse(manterACor2);
+  const CorComJson3 = JSON.parse(manterACor3);
+
+  coresDaPagina[2].style.backgroundColor = CorComJson || 'blue';
+  coresDaPagina[1].style.backgroundColor = CorComJson2 || 'red';
+  coresDaPagina[3].style.backgroundColor = CorComJson3 || 'green';
+  console.log(CorComJson);
