@@ -32,11 +32,6 @@ function CoresAutomaticas() {
   return cores;
 }
 const coresDaPagina = document.querySelectorAll('div.color');
-// const Paletas = {
-// cor2: coresDaPagina[2].style.backgroundColor = CoresAutomaticas(),
-// cor3: coresDaPagina[3].style.backgroundColor = CoresAutomaticas(),
-// cor4: coresDaPagina[1].style.backgroundColor = CoresAutomaticas(),
-// }
 let CoresAleatorias;
 let corAleatoria1;
 let corAleatoria3;
@@ -77,3 +72,13 @@ document.querySelector('#button-random-color').addEventListener('click', functio
   coresDaPagina[1].style.backgroundColor = CorComJson2 || 'red';
   coresDaPagina[3].style.backgroundColor = CorComJson3 || 'green';
   console.log(CorComJson);
+
+  //fazendo requisito 6 e 7
+
+  const pixel = document.getElementsByClassName('pixel');
+  for(let i = 0; i < pixel.length; i += 1) {
+    // eslint-disable-next-line no-multi-assign
+    pixel[i] += pixel[i].style.backgroundColor = 'white';
+    // pixel[i] += pixel[i].style.width = '5px';
+    // pixel[i] += pixel[i].style.height = '5x';
+  }
