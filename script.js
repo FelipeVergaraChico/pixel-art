@@ -85,15 +85,12 @@ document.querySelector('#button-random-color').addEventListener('click', functio
 
 const button2 = document.getElementById('clear-board');
 
-button2.addEventListener('click', () => {
-  const pixel = document.getElementsByClassName('pixel');
-  const corBranca = 'rb(255, 0, 0)';
-  for(let i = 0; i < pixel.length; i += 1) {
-    pixel[i] += pixel[i].style.backgroundColor = corBranca;
-  }
-})
-
   // requisito 9
+let ColorToDraw = 'black';
+
+const ColorSelected = (colorDraw) => {
+ColorToDraw = colorDraw;
+}
 
 coresDaPagina[1].addEventListener('click', () => {
   coresDaPagina[1].classList.add('selected');
@@ -116,3 +113,19 @@ coresDaPagina[3].addEventListener('click', () => {
   coresDaPagina[1].classList.remove('selected');
 });
 
+const Colorir = (pixel) => {
+pixel.addEventListener('click', () => {
+    pixel.style.backgroundColor = ColorToDraw;
+  });
+};
+
+for(let i = 0; i < pixel.length; i += 1) {
+  pixel[i] += Colorir(pixel[i]);
+
+  }
+
+  button2.addEventListener('click', () => {
+    for(let i = 0; i < pixel.length; i += 1) {
+      pixel[i] += pixel[i].style.backgroundColor = ColorToDraw;
+    }
+  })

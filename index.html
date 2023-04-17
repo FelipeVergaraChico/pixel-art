@@ -13,14 +13,15 @@
     </header>
     <div id="main">
         <section id="color-palette"> 
-            <div class="color selected" id="black">1</div>
-            <div class="color" id="red">2</div>
-            <div class="color" id="blue">3</div>
-            <div class="color" id="green">4</div>
+            <div class="color selected" id="black" onclick="ColorSelected('black')">1</div>
+            <div class="color" id="red" onclick="ColorSelected(CorComJson2 || 'red')" >2</div>
+            <div class="color" id="blue" onclick="ColorSelected(CorComJson || 'blue')">3</div>
+            <div class="color" id="green" onclick="ColorSelected(CorComJson3 || 'green')" >4</div>
+            <div class="pen" id="white" style="background-color: white;" onclick="ColorSelected('white')"></div>
         </section>
         <button type="button" id="button-random-color">Cores aleatórias</button>
         <div id="botão">
-            <button type="button" id="clear-board">Limpar</button>
+            <button type="button" id="clear-board" onclick="ColorSelected('white')">Limpar</button>
         </div>
         <div id="pixel-board">
             <div class="row"></div>
